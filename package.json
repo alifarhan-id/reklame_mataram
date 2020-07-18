@@ -1,0 +1,20 @@
+{
+  "name": "reklame_mataram",
+  "version": "1.0.0",
+  "description": "Reklame_mataram app Using Integrated Extjs4.2 and Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "node js ext js"
+  ],
+  "author": "Ali Farhan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.3.0"
+  },
+  "devDependencies": {}
+}
