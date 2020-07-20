@@ -89,24 +89,36 @@ Ext.define('MyDesktop.Kelurahan', {
                         ],
                         listeners: {
                             dblclick : {
-                                fn: function(e, t) {
+                                fn: function(grid, r, t) {
+                                    // var record = grid.getSelectionModel().getSelected().id;
+                                    //     console.log(record);
                                    var form = Ext.create('Ext.form.Panel', {
-                                            extend: 'Ext.form.Panel',
                                             bodyPadding: 10,
-                                            width: 500,
-                                            height:500,
-                                            items: [{
-                                                xtype: 'textfield',
-                                                name: 'fld',
-                                                fieldLabel: 'Fld Label',
-                                                width: 200,
-                                                allowBlank: false,
-                                                autoFocus: true,
-                                               
-                                            }],
+                                            width: 400,
+                                            height:200,
+                                            items: [
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: 'Kode Kelurahan',
+                                                    width: 300,
+                                                    dataIndex:'kode_kelurahan'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: 'Kode Kecamatan',
+                                                    width: 300,
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: 'Nama Kelurahan',
+                                                    width: 300,
+                                                },
+
+                                        ],
                                 
                                            
                                         });
+                                        
                     
                                 
                                         Ext.create('Ext.window.Window', {
@@ -119,7 +131,21 @@ Ext.define('MyDesktop.Kelurahan', {
                                             resizable: true,
                                             layout: 'fit',
                                             shadow: true,
-                                            items: [form]
+                                            items: [form],
+                                            buttons: [{
+                                                text:'Submit',
+                                                // disabled: this.app.isAllowedTo(this.flag==1?'doAdd':'doEdit', this.id) ? false : true,
+                                                scope:this,
+                                                handler : function() {
+                                                    this.onSave();
+                                                }
+                                            },{
+                                                text: 'Close',
+                                                scope:this,
+                                                handler: function(){
+                                                    this.winAdd.hide();
+                                                }
+                                            }]
                                 
                                         }).show().center();
 
